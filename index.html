@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Orkesteret musikere</h1>
+    <div class="header">
+        <div>
+            <button type="button" class="button" id="addMemberButton">Opret en musiker</button>
+            <button type="button" class="button" id="showAllMembersButton">Vis alle musikere</button>
+        </div>
+
+        <form id="omIdSearchForm"> <!--(orchestra member) omIdSearchForm-->
+            <input 
+                type="search"
+                id="omIdField"
+                class="inputField"
+                placeholder="Search orchestra member id"
+                required>
+            <button
+                type="submit"
+                class="button">
+                Search
+            </button>
+        </form>
+    </div>
+
+    <!-- Search panel starts here -->
+    <aside class="searchPanel" id="searchPanel">
+        <span class="panelText" id="panelText">A D V A N C E D&nbsp;&nbsp;S E A R C H</span>
+        <form id="searchForm" class="searchForm">
+            <div class="closeCross" id="closeCross">X</div>
+
+            <label class="searchFormLabel" for="name">Full name</label>
+            <input type="text" id="name" class="searchFormField">
+
+            <label class="searchFormLabel" for="instrument">Instrument</label>
+            <input type="text" id="instrument" class="searchFormField">
+
+            <label class="searchFormLabel" for="seniority">Seniority</label>
+            <input type="text" id="seniority" class="searchFormField">
+
+            <label class="searchFormLabel" for="residence">Plaec of residene</label>
+            <input type="text" id="residence" class="searchFormField">
+        
+            <br><br>
+
+            <div class="searchFormPanel">
+                <button type="reset" class="searchFormButton">Reset</button>
+                <button type="submit" class="searchFormButton">Apply</button>
+            </div>
+        </form>
+    </aside>
+    <!-- Search panel ends here -->
+
+    <!-- Add orchestra member start -->
+    <dialog id="memberDialog">
+        <form method="dialog" id="memberDialogForm">
+            <fieldset>
+                <legend>Add new orchestra member</legend>
+
+                <label for="omIdfield">Orchestra member Id</label>
+                <input type="text" class="inputField dialogField" id="omIdfield" placeholder="Type in orchestra member Id" required>
+
+                <label for="namefield">Name</label>
+                <input type="text" class="inputField dialogField" id="namefield" placeholder="Type in name" required>
+
+                <label for="instrumentfield">Instrument</label>
+                <input type="text" class="inputField dialogField" id="instrumentfield" placeholder="Type in instrument" required>
+
+                <label for="seniorityfield">Seniority</label>
+                <input type="text" class="inputField dialogField" id="seniorityfield" placeholder="Type in seniority" required>
+
+                <label for="residencefield">Place of residence</label>
+                <input type="text" class="inputField dialogField" id="residencefield" placeholder="Type in place of residence" required>
+
+                <br><br>
+
+                <div class="dialogBtnsPanel">
+                    <button type="button" id="cancelButton" class="button">Cancel</button>
+                    <button type="submit" id="saveButton" class="button">Save</button>
+                </div>
+            </fieldset>
+        </form>
+    </dialog>
+    <!-- Add orchestra member end -->
+
+    <!-- Delete confirmation dialog start -->
+    <dialog id="confirmDialog">
+        <form method="dialog" id="confirmDialogForm">
+            <fieldset>
+                <legend>Delete member</legend>
+                Do you really want to delete this member?
+                <br><br>
+                <div class="dialogBtnsPanel">
+                    <button type="submit" class="button">Yes</button>
+                    <button type="button" class="button" id="cancelConfirmBtn">No</button>
+                </div>
+            </fieldset>
+        </form>
+    </dialog>
+    <!-- Delete confirmation dialog end -->
+
+    <!-- Hidden field start -->
+    <form>
+        <input type="hidden" id="hiddenOmIdField">
+    </form>
+    <!-- Hidden field end -->
+
+    <table class="tablelist">
+        <thead>
+            <tr>
+                <th>Orchestra member Id</th>
+                <th>Name</th>
+                <th>Instrument</th>
+                <th>Seniority</th>
+                <th>Residence</th>
+            </tr>
+        </thead>
+        <tbody id="searchResult"></tbody>
+    </table>
+
+    <div id="snackbar">Some message will arrive here</div>
+
+    <script type="module">
+        import Model from "./models/model.js";
+        import Controller from "./controllers/controller.js";
+        import View from "./views/view.js";
+
+        window.onload = function() {
+            const model = new Model();
+            const controller = new Controller();
+            const view = new View(controller);
+            controller.initialize(model, view);
+        }
+    </script>
+
+</body>
+</html>

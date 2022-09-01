@@ -1,0 +1,206 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+.tablelist {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.tablelist td,
+.tablelist th {
+    border: 1px solid #ddd;
+    padding: 18px;
+}
+
+.tablelist tr:hover {
+    background-color: #ddd;
+}
+
+.tablelist th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #0491aa;
+    color: white;
+}
+
+#searchResult {
+    display: flex;
+    flex-direction: row;
+}
+
+.memberrow {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    margin: 30px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bolder;
+    background-color: #8cc1ca;
+    border-radius: 8px;
+}
+
+.memberrow td {
+}
+
+.memberrow button {
+    padding: 7px 20px;
+    font-size: large;
+    font-weight: bold;
+    background-color: orange;
+    color: white;
+    text-shadow: 1px 1px #585858;
+    border-radius: 6px;
+}
+
+.searchform {
+   padding: 10px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    margin-right: 35px;
+}
+
+.inputField,
+.button {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: rgb(211, 206, 206); 
+}
+
+#dialogForm {
+    width: 300px;
+    border: 0;
+    box-shadow: 10px 10px 5px gray;
+}
+
+.dialogField {
+    width: 95%;
+}
+
+.dialogBtnsPanel {
+    display: flex;
+    justify-content: space-between;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;;
+}
+
+#memberDialog {
+    width: 25%;
+}
+
+/* Source: https://www.w3schools.com/howto/howto_js_snackbar.asp */
+
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+  
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+  
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+
+
+/* Search panel start */
+
+.searchPanel {
+    position: fixed;
+    background-color: orange;
+    height: 100vh;
+    width: 30px;
+    right: 0px;
+    top: 0;
+    transition: width 1s;
+    display: flex;
+}
+
+.searchPanelAnim {
+    width: 300px;
+}
+
+.panelText {
+    position: relative;
+    color: white;
+    top: 20px;
+    left: 5px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    height: 95vh;
+    cursor: pointer;
+}
+
+.closeCross {
+    text-align: right;
+    color: white;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.searchForm {
+    padding: 135px 0 0 20px;
+}
+
+.searchFormLabel {
+    color: white;
+    display: block;
+}
+
+.searchFormField {
+    width: 225px;
+}
+
+.searchFormPanel {
+    display: flex;
+}
+
+/* Search panel end */
